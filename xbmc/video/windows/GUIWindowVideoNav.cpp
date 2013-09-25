@@ -475,14 +475,8 @@ void CGUIWindowVideoNav::LoadVideoInfo(CFileItemList &items, CVideoDatabase &dat
         pItem->GetPVRRecordingInfoTag()->CopyClientInfo(pItem->GetVideoInfoTag());
 
       // set the watched overlay
-      if (pItem->IsVideo()) {
-        if (database.GetPlayCount(*pItem) > 0) {
-          pItem->SetOverlayImage(CGUIListItem::ICON_OVERLAY_WATCHED);
-        } 
-        else {
-          pItem->SetOverlayImage(CGUIListItem::ICON_OVERLAY_UNWATCHED, pItem->HasVideoInfoTag() && pItem->GetVideoInfoTag()->m_playCount > 0);
-        }
-      }
+      if (pItem->IsVideo())
+        pItem->SetOverlayImage(CGUIListItem::ICON_OVERLAY_UNWATCHED, pItem->HasVideoInfoTag() && pItem->GetVideoInfoTag()->m_playCount > 0);
     }
   }
 }
